@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .question{
+            font-weight: bolder;
+            font-size: larger;
+        }
+        .faq-item{
+            margin-top: 20px;
+            border: 2px solid black;
+            padding : 5px;
+        }
+        .answer{
+            display: none;
+        }
+        .show
+        {
+            display: block ;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="faq">
+        <!-- this is the first  -->
+        <div class="faq-item">
+            <div class="question">What is the Javascript ?</div>
+                <div class="answer">This is the one of the secripting language used in the web davelopment.</div>
+               
+            </div>
+
+            <!-- this is the second  -->
+              <div class="faq-item">
+            <div class="question">What is the DOM ?</div>
+                <div class="answer">Document object model that represent a web page in the form of node list. </div>
+               
+            </div>
+               <!-- this is the third faq itme. -->
+                 <div class="faq-item">
+            <div class="question">What is the react ? </div>
+                <div class="answer"> React is a javascript framework work for managing of the state of the javascript .</div>
+               
+            </div>
+
+        </div>
+    </div>
+    <script>
+        let faq = document.querySelector(".faq");
+        faq.addEventListener("click", function(e){
+            if(e.target.classList.contains("question"))
+        {
+            e.stopPropagation();
+            let item = e.target.parentElement;
+            let child = item.querySelector(".answer");
+            child.classList.toggle("show");
+        }
+        })
+        document.addEventListener("click", function()
+    {
+        const ans = document.querySelectorAll(".answer.show");
+        ans.forEach((a)=>
+    a.classList.remove("show"));
+    })
+    </script>
+</body>
+</html>
